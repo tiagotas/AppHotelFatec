@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppHotelFatec.View.ContratacaoHospedagem"
+             Title="Minha Hospedagem">
+    
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+            <GradientStop Color="DarkOliveGreen" Offset="0.3" />
+            <GradientStop Color="GreenYellow" Offset="1.1" />
+        </LinearGradientBrush>
+    </ContentPage.Background>    
+
+    <ContentPage.Content>
+
+        <Frame CornerRadius="10"
+               VerticalOptions="Center"
+               BackgroundColor="Transparent"
+               Margin="10, 0, 10, 10"
+               Padding="10">
+
+            <StackLayout>
+
+                <Label Text="Cálculo da Diária" />
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Definição dos Steppers para Adultos -->
+                    <Label Grid.Row="0" Grid.Column="0" Text="Adultos: " />
+                    
+                    <Label Grid.Row="0" Grid.Column="1" 
+                           x:Name="lbl_qnt_adultos"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stepperAdultos}" />
+                    
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stepperAdultos"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1" />
+
+                    <!-- Definição dos Steppers para Crianças -->
+                    <Label Grid.Row="1" Grid.Column="0" Text="Crianças: " />
+
+                    <Label Grid.Row="1" Grid.Column="1" 
+                           x:Name="lbl_qnt_criancas"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stepperCriancas}" />
+
+                    <Stepper Grid.Row="1" Grid.Column="2"
+                             x:Name="stepperCriancas"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1" />
+                </Grid>
+
+                <StackLayout>
+
+                    <Label Text="Escolha uma Suíte:" />
+
+                    <Picker x:Name="pck_quarto" 
+                            ItemDisplayBinding="{Binding Descricao}"
+                            Title="Selecione sua Acomodação" />
+
+
+                    <Label Text="Período de Estadia" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Check-in" />
+                        <DatePicker x:Name="dtpck_checkin"
+                                    DateSelected="dtpck_checkin_DateSelected"
+                                    Format="dd/MM/yyyy" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Check-out" />
+                        <DatePicker x:Name="dtpck_checkout" Format="dd/MM/yyyy" />
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Button Text="Calcular Minha Estadia" Clicked="Button_Clicked" />
+
+            </StackLayout>            
+        </Frame>       
+        
+       
+        
+    </ContentPage.Content>
+    
+    
+</ContentPage>
