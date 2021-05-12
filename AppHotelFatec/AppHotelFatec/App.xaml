@@ -7,9 +7,41 @@
 
         <ResourceDictionary>
 
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="DarkOliveGreen" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="DarkRed" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="7" />
+                <!-- <Setter Property="FontSize" Value="Medium" /> -->
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+    
+            
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="DarkOliveGreen" />
             </Style>
+
+            <Style x:Key="FonteSatisfy" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                    Android="Satisfy-Regular.ttf#Satisfy-Regular" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="Titulo" TargetType="Label" BaseResourceKey="FonteSatisfy">
+                <Setter Property="FontSize" Value="58" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            
             
         </ResourceDictionary>
 

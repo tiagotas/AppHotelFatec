@@ -2,100 +2,146 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppHotelFatec.View.ContratacaoHospedagem"
-             Title="Minha Hospedagem">
+             Title="Minha Hospedagem"
+             Background="DarkOliveGreen">
+    
+    <!--
+    
+    StartPoint="0,1" EndPoint="1,0" 
     
     <ContentPage.Background>
-        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-            <GradientStop Color="DarkOliveGreen" Offset="0.3" />
-            <GradientStop Color="GreenYellow" Offset="1.1" />
+        <LinearGradientBrush>
+            <GradientStop Color="Olive" Offset="0.1" />
+            <GradientStop Color="DarkOliveGreen" Offset="0.7" />            
         </LinearGradientBrush>
-    </ContentPage.Background>    
+    </ContentPage.Background>   --> 
 
     <ContentPage.Content>
 
-        <Frame CornerRadius="10"
-               VerticalOptions="Center"
-               BackgroundColor="Transparent"
-               Margin="10, 0, 10, 10"
-               Padding="10">
+        <StackLayout>
+            <Label Text="Cálculo da Diária" Style="{StaticResource Titulo }" />         
 
-            <StackLayout>
+            <Frame CornerRadius="10"
+                   VerticalOptions="CenterAndExpand"
+                   BackgroundColor="#eee"
+                   Margin="10, 0, 10, 10"
+                   Padding="20">
 
-                <Label Text="Cálculo da Diária" />
+                <StackLayout>               
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                    <Grid Padding="0"
+                          ColumnSpacing="0" 
+                          RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
                     
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
                     
-                    <!-- Definição dos Steppers para Adultos -->
-                    <Label Grid.Row="0" Grid.Column="0" Text="Adultos: " />
+                        <!-- Definição dos Steppers para Adultos -->
+                        <Label Grid.Row="0" Grid.Column="0" 
+                               Text="Adultos: "
+                               HorizontalTextAlignment="End"
+                               VerticalTextAlignment="Center" />
                     
-                    <Label Grid.Row="0" Grid.Column="1" 
-                           x:Name="lbl_qnt_adultos"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stepperAdultos}" />
+                        <Label Grid.Row="0" Grid.Column="1" 
+                               x:Name="lbl_qnt_adultos"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               TextColor="DarkRed"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stepperAdultos}" />
                     
-                    <Stepper Grid.Row="0" Grid.Column="2"
-                             x:Name="stepperAdultos"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
+                        <Stepper Grid.Row="0" Grid.Column="2"
+                                 x:Name="stepperAdultos"
+                                 Minimum="0"
+                                 Maximum="10"
+                                 Increment="1" />
 
-                    <!-- Definição dos Steppers para Crianças -->
-                    <Label Grid.Row="1" Grid.Column="0" Text="Crianças: " />
+                        <!-- Definição dos Steppers para Crianças -->
+                        <Label Grid.Row="1" Grid.Column="0" 
+                               Text="Crianças: "
+                               HorizontalTextAlignment="End"
+                               VerticalTextAlignment="Center" />
 
-                    <Label Grid.Row="1" Grid.Column="1" 
-                           x:Name="lbl_qnt_criancas"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stepperCriancas}" />
+                        <Label Grid.Row="1" Grid.Column="1" 
+                               x:Name="lbl_qnt_criancas"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               TextColor="DarkRed"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stepperCriancas}" />
 
-                    <Stepper Grid.Row="1" Grid.Column="2"
-                             x:Name="stepperCriancas"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
-                </Grid>
+                        <Stepper Grid.Row="1" Grid.Column="2"
+                                 x:Name="stepperCriancas"
+                                 Minimum="0"
+                                 Maximum="10"
+                                 Increment="1" />
+                    </Grid>
 
-                <StackLayout>
+                    <Label Text="Escolha uma Suíte:"
+                               HorizontalTextAlignment="Center"
+                               TextTransform="Uppercase"
+                               FontAttributes="Bold"
+                               FontSize="Small"
+                               Margin="0, 25, 0, 0"/>
 
-                    <Label Text="Escolha uma Suíte:" />
+                    <Picker x:Name="pck_quarto"
+                                HorizontalTextAlignment="Center"
+                                ItemDisplayBinding="{Binding Descricao}"
+                                Title="Selecione sua Acomodação" />
 
-                    <Picker x:Name="pck_quarto" 
-                            ItemDisplayBinding="{Binding Descricao}"
-                            Title="Selecione sua Acomodação" />
+                    <Frame BackgroundColor="#ddd" 
+                           CornerRadius="10"
+                           Margin="10">
+                        
+                    
+
+                    <StackLayout>
+
+                        
 
 
-                    <Label Text="Período de Estadia" />
+                        <Label Text="Período de Estadia"
+                               HorizontalTextAlignment="Center"
+                               TextTransform="Uppercase"
+                               FontAttributes="Bold"
+                               FontSize="Small"
+                               Margin="0,0, 0, 0"/>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Check-in" />
-                        <DatePicker x:Name="dtpck_checkin"
-                                    DateSelected="dtpck_checkin_DateSelected"
-                                    Format="dd/MM/yyyy" />
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="Center">                            
+                            <Label Text="Check-in: " VerticalOptions="Center" />
+                            <DatePicker x:Name="dtpck_checkin"
+                                        DateSelected="dtpck_checkin_DateSelected"
+                                        Format="dd/MM/yyyy" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="Center">
+                            <Label Text="Check-out: " VerticalOptions="Center" />
+                            <DatePicker x:Name="dtpck_checkout" Format="dd/MM/yyyy" />
+                        </StackLayout>
+
                     </StackLayout>
+                    </Frame>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Check-out" />
-                        <DatePicker x:Name="dtpck_checkout" Format="dd/MM/yyyy" />
-                    </StackLayout>
+                    <Button Text="Calcular Estadia" Clicked="Button_Clicked" />
 
-                </StackLayout>
+                </StackLayout>            
+            </Frame>
 
-                <Button Text="Calcular Minha Estadia" Clicked="Button_Clicked" />
+        </StackLayout>
 
-            </StackLayout>            
-        </Frame>       
-        
-       
-        
     </ContentPage.Content>
     
     

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
 
+  <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+    <item name="colorAccent">#FF556B2F</item>
+  </style>
+
   <style name="MainTheme" parent="MainTheme.Base">
     <!-- As of Xamarin.Forms 4.6 the theme has moved into the Forms binary -->
     <!-- If you want to override anything you can do that here. -->
@@ -13,6 +17,11 @@
     <!--<item name="colorPrimaryDark">#1976D2</item>-->
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-    <!--<item name="colorAccent">#FF4081</item>-->
+    
+    <item name="colorAccent">#FF556B2F</item>
+    
+
+    <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>    
+    
   </style>
 </resources>

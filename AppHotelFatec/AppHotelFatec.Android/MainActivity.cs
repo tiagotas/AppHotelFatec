@@ -19,9 +19,17 @@ namespace AppHotelFatec.Droid
             LoadApplication(new App());
 
             Window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
-            Window.AddFlags(Android.Views.WindowManagerFlags.LayoutNoLimits);
-            Window.AddFlags(Android.Views.WindowManagerFlags.LayoutInScreen);
-            Window.DecorView.SetFitsSystemWindows(true);
+            Window.AddFlags(Android.Views.WindowManagerFlags.DrawsSystemBarBackgrounds);
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#FF556B2F"));
+
+            //Resource.Drawable.
+
+            //Window.SetBackgroundDrawableResource(Resource.Drawable.);
+
+
+            //Window.AddFlags(Android.Views.WindowManagerFlags.LayoutNoLimits);
+            //Window.AddFlags(Android.Views.WindowManagerFlags.LayoutInScreen);
+            //Window.DecorView.SetFitsSystemWindows(true);
 
 
         }

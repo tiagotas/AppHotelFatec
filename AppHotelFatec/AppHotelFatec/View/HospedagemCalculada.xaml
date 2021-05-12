@@ -2,28 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppHotelFatec.View.HospedagemCalculada"
-             Title="{Binding Path=Acomodacao.Descricao}">
+             Title="{Binding Path=Acomodacao.Descricao}"
+             Background="DarkOliveGreen">
     
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
             <StackLayout>
-                <Label Text="Detalhes da Estadia" />
-
-                <Label Text="{Binding Path=Acomodacao.Descricao}" />
+                <Label Text="Detalhes da Estadia" Style="{StaticResource Titulo}" />
+                <Label TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Title"
+                       Text="{Binding Path=Acomodacao.Descricao}" />
             </StackLayout>
 
-            <Frame BackgroundColor="Aqua">
-                <StackLayout Orientation="Horizontal">
+            <Frame BackgroundColor="#eee"
+                   CornerRadius="10"
+                   Margin="10">                
+                
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="Center">
                     <Label Text="Adultos: " />
-                    <Label Text="{Binding QuantidadeAdultos}" />
+                    <Label Text="{Binding QuantidadeAdultos}"
+                           TextColor="DarkRed"
+                           FontAttributes="Bold" />
 
-                    <Label Text="Crianças: " />
-                    <Label Text="{Binding QuantidadeCriancas}" />
+                    <Label Text="Crianças: " Margin="30, 0, 0, 0" />
+                    <Label Text="{Binding QuantidadeCriancas}"
+                           TextColor="DarkRed"
+                           FontAttributes="Bold" />
                 </StackLayout>
             </Frame>
 
-            <Frame Margin="10" BackgroundColor="Aqua">
+            <Frame Margin="10"
+                   CornerRadius="10"
+                   BackgroundColor="#eee">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -35,26 +49,53 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0" Grid.Column="0" Text="Check-in" />
-                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataCheckin, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                    <Label Grid.Row="0" Grid.Column="0" 
+                           Text="Check-in"
+                           HorizontalTextAlignment="Center" />
+                    <Label Grid.Row="1" Grid.Column="0" 
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           TextColor="DarkRed"
+                           Text="{Binding DataCheckin, StringFormat='{}{0:dd/MM/yyyy}'}" />
                     
-                    <Label Grid.Row="0" Grid.Column="1" Text="Check-out" />
-                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataCheckout, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                    <Label Grid.Row="0" Grid.Column="1" 
+                           Text="Check-out"
+                           HorizontalTextAlignment="Center" />
+                    <Label Grid.Row="1" Grid.Column="1" 
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           TextColor="DarkRed"
+                           Text="{Binding DataCheckout, StringFormat='{}{0:dd/MM/yyyy}'}" />
                     
-                    <Label Grid.Row="0" Grid.Column="2" Text="Estadia" />
-                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding QuantidadeDias}" />
+                    <Label Grid.Row="0" Grid.Column="2" 
+                           Text="Estadia"
+                           HorizontalTextAlignment="Center" />
+                    <Label Grid.Row="1" Grid.Column="2"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           TextColor="DarkRed"
+                           Text="{Binding QuantidadeDias}" />
                 </Grid>
             </Frame>
 
-            <Label FontSize="Large">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Total da Hospedagem: " />
-                        <Span Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" 
-                              TextColor="red" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
+            <Frame Margin="10"
+                   CornerRadius="10"
+                   BackgroundColor="#eee">              
+                <Label FontSize="Large"
+                       
+                       HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Total da Hospedagem: "
+                                  FontSize="Medium" />                          
+                            <Span Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" 
+                                  TextColor="DarkRed"
+                                  FontAttributes="Bold"
+                                  FontSize="Large"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
 
             <Button Text="Voltar" Clicked="Button_Clicked" />
 

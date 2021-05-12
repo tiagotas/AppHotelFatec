@@ -23,7 +23,7 @@ namespace AppHotelFatec.View
 
             PropriedadesApp = (App)Application.Current;
 
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
 
             // carregando os quartos do array de objetos no picker
             pck_quarto.ItemsSource = PropriedadesApp.lista_quartos;
